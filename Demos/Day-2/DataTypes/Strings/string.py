@@ -42,3 +42,50 @@ print(components)
 multiline_text = "the first network switch A.\nsecond switch B.\nAnd third network switch C."
 lines = multiline_text.splitlines()
 print(lines)
+
+
+# join() method 
+# The join() method in python strings is the opposite of split method. It lets to merge a list of strings
+# into one string. This is useful for creating strings with custom seperators. 
+
+octets = ['172', '31','15', '21']
+ip_address = ".".join(octets)
+print(ip_address)
+
+# .strip() method for Strings in Python 
+
+# The .strip() method removes the leading and trailing whitespaces from a string. This includes 
+# tabs, spaces, newline characters. 
+
+sentence = " In this example, we can use leading and whitespaces for IP CIDR declaration.  "
+cleaned_sentence = sentence.strip()
+print(cleaned_sentence)
+
+# to remove leading spaces 
+
+sentence = " In this example, we can use leading and whitespaces for IP CIDR declaration.  "
+cleaned_sentence = sentence.lstrip()
+print(cleaned_sentence)
+
+# to remove only trailing spaces 
+
+sentence = " In this example, we can use leading and whitespaces for IP CIDR declaration.  "
+cleaned_sentence = sentence.rstrip()
+print(cleaned_sentence)
+
+
+# search substrings in Python 
+
+# searching for specific keywords or patterns in configuration file is essential. 
+# The find() method helps you to locate substrings within a string and determine their position. 
+# 
+config = "hostiname R1\nip address 192.168.1.1"
+position = config.find("ip address") # index of "ip address"
+print(position) 
+
+# startswith() & endswith() methods 
+
+ipaddr = '10.1.1.1'
+print(ipaddr.startswith('20'))
+print(ipaddr.endswith('5'))
+
