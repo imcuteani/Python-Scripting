@@ -103,8 +103,8 @@ print(len('python') > len('dragon'))   # False
 print('True == True: ', True == True)
 print('True == False: ', True == False)
 print('False == False:', False == False)
-print('True and True: ', True and True)
-print('True or False:', True or False)
+print('True and True: ', True and True) # logical AND operation & return true only both the operands are true 
+print('False or False:', True or False) # Logical OR operation means it'll return true if at least of one of the operand is true
 
 # Another way comparison
 # True - because the data values are the same
@@ -128,3 +128,40 @@ print(not True)      # False - Negation, the not operator turns true to false
 print(not False)     # True
 print(not not True)  # True
 print(not not False)  # False
+
+# Identity Operators 
+
+# In Python, the is and is not are used to check if two values are located at the same memory location. 
+
+# it's important, having two variables with equal values doesn't necessarily mean they are identical. 
+
+# is -> True if the operand are identical 
+
+# is not -> True if the operands are not identical 
+
+x1 = 5
+y1 = 10
+x2 = 'device'
+y2 = 'device'
+x3 = [10, 2, 4]
+y3 = [3, 4, 5]
+
+print(x1 is not y1)  # prints true
+
+print(x1 is y1)
+
+# Membership operators 
+
+# in Python, the in and not in are the membership operators, they're used to test 
+# whether a value or variable is found in a sequence (string, list, tuple, set or dictionary)
+# 
+# in -> if the value / variable is found in the sequence then the output is True 
+# not in -> if the value / variable is not found in the sequence 
+# 
+message = 'Hello python'
+dict1 = {1: 'a', 2: 'b'} 
+# to retrive the dictionary values use values() method with dictionary var name
+# dict_name.value()
+
+# check if 'H' is present in the message string 
+print('H' in message) 
