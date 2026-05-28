@@ -38,4 +38,22 @@ configure_device("Router2")
 
 def configure_network_device(device_name, configuration_mode="basic", interface="eth0"):
     print(f"Configuring {device_name} in {configuration_mode} mode on interface {interface}.")
-configure_network_device("Router1", configuration_mode="advanced", interface="eth1")    
+configure_network_device("Router1", configuration_mode="advanced", interface="eth1") 
+
+# *args in Python functions 
+
+# *args means an arbitary number of arguments 
+
+def network_status(*devices):
+    print("Devices in the network:", devices)
+
+network_status("Router1", "Switch2", "Firewall3", "loadbalancer4")
+
+# **kwargs -> an arbitary number of arguments 
+
+def configure_device(**config_params):
+    print("Configuration parameters: ", config_params)
+
+configure_device(device_type="Router", interface="eth0", vlan=10)
+    
+
