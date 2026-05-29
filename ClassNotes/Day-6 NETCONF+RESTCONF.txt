@@ -1,0 +1,43 @@
+Azure SQL Ecosystem 
+
+Azure SQL is built upon the familiar SQL server engine, the migration of the application can be implemented with ease and use the SQL server tools, tSQL, 
+resources. 
+
+a. Azure SQL database - modern intelligent managed database instance which includes serverless compute functionality. Azure SQL db is PaaS db. 
+
+b. Azure SQL Managed instance - modernize the applications with existing SQL Server applications at scale with an intelligent fully managed instance as a 
+service, with alsmost 100% compatibility with native SQL server database engine. It's PaaS offering.
+
+Scenarios
+
+- Azure SQL managed instance new/existing apps which requires native on-prem SQL Server db engine features which are required to be migrate to cloud. 
+
+- An instance of Azure SQL managed instance is similar to the instance of SQL Server database engine offering shared resources for database & additional
+instance-scope features. 
+
+- SQL managed instance allows db migration from on-prem to Azure with minimal/no db changes. This option provides all of the benefits of PaaS that Azure 
+SQL db offers including additional capabilities like virtual networking, SQL server access and feature compatibility.   
+
+c. SQL Server on Azure VM - lift/shift of legacy applications, rehost of apps which requires 100% of on-prem SQL server compatibility & OS level access. 
+Maintain & manage all native SQL Server core administrative functionality(SQL server mirroring, broker services, SQL Server Agent, MDM etc.) 
+It's an IaaS offering. 
+
+Scenarios
+
+- SQL Server db engine offering either in Windows/Linux OS of Azure VMs
+
+- SQL Azure VMs offer full administrative controls over the SQL server instance & underlying OS for migration of db to Azure 
+
+- full control of maintaining OS patch updates, db services start/stop , recovery services 
+
+- Optimized for migrating the existing applications to Azure for hybrid deployments. Full administrative rights over a dedicated SQL server instance and 
+cloud hosted VM. 
+
+
+Data Security of Azure SQL 
+
+1. advanced threat detection 
+
+2. tSQL authentication, networking & key management 
+
+3. take advantage of compliance of cloud database service 
