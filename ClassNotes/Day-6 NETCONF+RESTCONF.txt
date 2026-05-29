@@ -1,43 +1,92 @@
-Azure SQL Ecosystem 
+Python Network Automation
+-------------------------------
+NETCONF (Network Configuration Protocol)
+----------------------------------------------
+1. library which works with SSH (port 830) , TLS 
 
-Azure SQL is built upon the familiar SQL server engine, the migration of the application can be implemented with ease and use the SQL server tools, tSQL, 
-resources. 
+2. data format is supported for XML 
 
-a. Azure SQL database - modern intelligent managed database instance which includes serverless compute functionality. Azure SQL db is PaaS db. 
+3. In model driven protocol standard, NETCONF supports YANG data models - vendor neutral schemas which defines device configuration and operational state. 
 
-b. Azure SQL Managed instance - modernize the applications with existing SQL Server applications at scale with an intelligent fully managed instance as a 
-service, with alsmost 100% compatibility with native SQL server database engine. It's PaaS offering.
+4. configuration drift solution -> manual changes which diverge from sourth of truth , lack of rollback atomicity -> (partial failures leaving devices in inconsistent 
+state), vendor lock-in 
 
-Scenarios
-
-- Azure SQL managed instance new/existing apps which requires native on-prem SQL Server db engine features which are required to be migrate to cloud. 
-
-- An instance of Azure SQL managed instance is similar to the instance of SQL Server database engine offering shared resources for database & additional
-instance-scope features. 
-
-- SQL managed instance allows db migration from on-prem to Azure with minimal/no db changes. This option provides all of the benefits of PaaS that Azure 
-SQL db offers including additional capabilities like virtual networking, SQL server access and feature compatibility.   
-
-c. SQL Server on Azure VM - lift/shift of legacy applications, rehost of apps which requires 100% of on-prem SQL server compatibility & OS level access. 
-Maintain & manage all native SQL Server core administrative functionality(SQL server mirroring, broker services, SQL Server Agent, MDM etc.) 
-It's an IaaS offering. 
-
-Scenarios
-
-- SQL Server db engine offering either in Windows/Linux OS of Azure VMs
-
-- SQL Azure VMs offer full administrative controls over the SQL server instance & underlying OS for migration of db to Azure 
-
-- full control of maintaining OS patch updates, db services start/stop , recovery services 
-
-- Optimized for migrating the existing applications to Azure for hybrid deployments. Full administrative rights over a dedicated SQL server instance and 
-cloud hosted VM. 
+5. Supports all REST verbs like GET, POST, PUT, Delete, PATCH etc.
 
 
-Data Security of Azure SQL 
+RESTCONF (HTTP based protocol) provides a programmatic layer for accessing, modifying, configuration of network devices. 
 
-1. advanced threat detection 
+1. familiar RESTful APIS (HTTP/HTTPs) which can interact with structured YANG models 
 
-2. tSQL authentication, networking & key management 
+2. making the network automation accessible via standard tools like curl, python or postman. 
 
-3. take advantage of compliance of cloud database service 
+3. unlike its predecessor like NETCONF (which primarily uses XML) RESTCONF supports both JSON and XML data payloading, making it highly compatible across the web 
+dev workflows 
+
+4. Resources: every object, configuration or operational state is treated as resource and is identified by a URI. 
+
+Differences between NETCONF & RESTCONF
+--------------------------------------------------
+
+1. TRansport layer -> RESTCONF supports HTTP/HTTPs   NETCONF supports SSH 
+
+2. Message encoding -> JSON or XML                   NETCONF supports XML 
+
+3. Architecture -> RESTCONF is stateless (use standard  NETCONF is stateful(RPC)
+CRUD) (CREATE, READ, Update, Delete) 
+
+4. RESTCONF uses standard web aPIS (High)                moderate (uses specific tools or library)
+
+
+RESTCONF components 
+----------------------------
+1. RESTCONF client -> entity which initiates the request to the server. This can be network management application, a custom built script. Also, can be 
+any software which needs to interact with networking devices. 
+
+2. RESTCONF protocol -> it defines the communication between the RESTCONF client and server. It defines the HTTP methods, headers, and media types which 
+are used for various operations as well as the structure and format of the data which has been exchanged. 
+
+
+YANG data models language 
+
+1. it is a modular, hiearchical data modelling language designed to define the data sent over the network protocols like NETCONF and RESTCONF, 
+
+2. it's a schema which provides the rules and standard for network data. IT allows developers to create standardized blueprints for how network controlls -> routers, switches, firewalls are configured and monitored.
+
+3. clears seperations from configuration data with network operational data. 
+
+4. data presented in the formats like XML, JSON  etc. 
+
+
+YANG components
+--------------------------------
+1. leaf -> IP address, interface 
+2. leaf -list -> a sequence of simple values (a list of DNS or IP address) 
+3. Container -> groups of related nodes together forms a subtree (e.g. system container for all device settings) 
+4. List -> defines the sequence of entries, each of which with a unique key (list of interface where entry has its own settings) 
+
+
+JSON & XML comparison
+------------------------------------
+
+Structure -> Key-value pairs & arrays      XML is tree & tag based structure
+
+Data types -> Supports numbers, strings
+booleans                                     Text data 
+
+Size ->      lightweight payloads           larger file size (verbose) 
+
+parsing ->    Faster, native to javascript    slower; requires seperate parsers 
+
+Complexity -> simple, human readble            complex, supports metadata and namespaces 
+
+ 
+
+
+ 
+
+
+
+
+
+
