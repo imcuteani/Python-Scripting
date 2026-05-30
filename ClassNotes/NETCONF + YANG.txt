@@ -1,0 +1,92 @@
+Python Network Automation
+-------------------------------
+NETCONF (Network Configuration Protocol)
+----------------------------------------------
+1. library which works with SSH (port 830) , TLS 
+
+2. data format is supported for XML 
+
+3. In model driven protocol standard, NETCONF supports YANG data models - vendor neutral schemas which defines device configuration and operational state. 
+
+4. configuration drift solution -> manual changes which diverge from sourth of truth , lack of rollback atomicity -> (partial failures leaving devices in inconsistent 
+state), vendor lock-in 
+
+5. Supports all REST verbs like GET, POST, PUT, Delete, PATCH etc.
+
+
+RESTCONF (HTTP based protocol) provides a programmatic layer for accessing, modifying, configuration of network devices. 
+
+1. familiar RESTful APIS (HTTP/HTTPs) which can interact with structured YANG models 
+
+2. making the network automation accessible via standard tools like curl, python or postman. 
+
+3. unlike its predecessor like NETCONF (which primarily uses XML) RESTCONF supports both JSON and XML data payloading, making it highly compatible across the web 
+dev workflows 
+
+4. Resources: every object, configuration or operational state is treated as resource and is identified by a URI. 
+
+Differences between NETCONF & RESTCONF
+--------------------------------------------------
+
+1. TRansport layer -> RESTCONF supports HTTP/HTTPs   NETCONF supports SSH 
+
+2. Message encoding -> JSON or XML                   NETCONF supports XML 
+
+3. Architecture -> RESTCONF is stateless (use standard  NETCONF is stateful(RPC)
+CRUD) (CREATE, READ, Update, Delete) 
+
+4. RESTCONF uses standard web aPIS (High)                moderate (uses specific tools or library)
+
+
+RESTCONF components 
+----------------------------
+1. RESTCONF client -> entity which initiates the request to the server. This can be network management application, a custom built script. Also, can be 
+any software which needs to interact with networking devices. 
+
+2. RESTCONF protocol -> it defines the communication between the RESTCONF client and server. It defines the HTTP methods, headers, and media types which 
+are used for various operations as well as the structure and format of the data which has been exchanged. 
+
+
+YANG data models language 
+
+1. it is a modular, hiearchical data modelling language designed to define the data sent over the network protocols like NETCONF and RESTCONF, 
+
+2. it's a schema which provides the rules and standard for network data. IT allows developers to create standardized blueprints for how network controlls -> routers, switches, firewalls are configured and monitored.
+
+3. clears seperations from configuration data with network operational data. 
+
+4. data presented in the formats like XML, JSON  etc. 
+
+
+YANG components
+--------------------------------
+1. leaf -> IP address, interface 
+2. leaf -list -> a sequence of simple values (a list of DNS or IP address) 
+3. Container -> groups of related nodes together forms a subtree (e.g. system container for all device settings) 
+4. List -> defines the sequence of entries, each of which with a unique key (list of interface where entry has its own settings) 
+
+
+JSON & XML comparison
+------------------------------------
+
+Structure -> Key-value pairs & arrays      XML is tree & tag based structure
+
+Data types -> Supports numbers, strings
+booleans                                     Text data 
+
+Size ->      lightweight payloads           larger file size (verbose) 
+
+parsing ->    Faster, native to javascript    slower; requires seperate parsers 
+
+Complexity -> simple, human readble            complex, supports metadata and namespaces 
+
+ 
+
+
+ 
+
+
+
+
+
+
