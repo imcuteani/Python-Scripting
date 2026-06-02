@@ -1,0 +1,25 @@
+JSON & YANG file types 
+-------------------------------------
+
+JSON script & YANG data modelling language 
+-------------------------------------------------
+
+1. JSON is the data format                   1. Yang is the data modelling language. 
+2. JSON is used with RESTCONF, REST APIS.    2. YANG is used for NETCONF and RESTCONF
+3. human readable & Javascript syntax        3. YANG is partially & YANG specific 
+4. represents data (config/ops)              4. defines the structure and rule for the data  
+5. All modern platforms                      5. supported by Cisco, Juniper
+
+Real time use cases for JSON and YANG 
+-----------------------------------------
+1. Automating interface configuration -> across routers and switches 
+2. Retrieving operational data -> CPU, memory, interface calls
+3. pushing bulk changes -> like VLAN provisioning or ACLS. 
+4. SDN integration with platforms like Cisco DNA center 
+
+Yang parsers in python
+-----------------------------------
+1. pyang is a python program which can validate YANG modules against the YANG RFC
+2. Convert YANG modules into equivalent YIN modules (XML)
+3. Generate the tree structure of YANG models for quick visuals 
+
