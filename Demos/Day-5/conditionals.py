@@ -45,4 +45,7 @@ if ssh_timeout is None:
 elif host_reachable is False or ip_addr is not None: 
     print("Error, host is reachable")
 else: 
-    print("No Error occurred")                  
+    print("No Error occurred")  
+
+
+                 
