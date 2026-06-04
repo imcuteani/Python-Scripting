@@ -20,7 +20,7 @@ client.connect(
 ssh_client = client.invoke_shell()
 
 # Send command
-ssh_client.send("sh ip int bri\n")
+ssh_client.send("ip a")
 
 # Wait for the command to be finished
 time.sleep(3)
