@@ -15,6 +15,6 @@ config_commands = [
     'ip address 192.168.2.1 255.255.255.0',
     'no shutdown',
 ]
-output = net_connect.send_config_set(config_commands, read_time)
+output = net_connect.send_config_set(config_commands, read_timeout=120)
 print(output)
 net_connect.disconnect()
