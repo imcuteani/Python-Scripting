@@ -1,0 +1,85 @@
+
+Building configuration...
+
+Current configuration : 1078 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R4
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$FHj2$JpjjhKMABQ/SEg59IKT9H1
+!
+no aaa new-model
+memory-size iomem 5
+no ip icmp rate-limit unreachable
+!
+!
+!
+!
+ip cef
+no ip domain lookup
+ip domain name mynetwork.local
+ip auth-proxy max-nodata-conns 3
+ip admission max-nodata-conns 3
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$wKMV$ht4679VGK0skJOQhry/KV.
+!
+!
+ip tcp synwait-time 5
+ip ssh version 2
+! 
+!
+!
+!
+interface Ethernet0
+ no ip address
+ shutdown
+ half-duplex
+!
+interface FastEthernet0
+ no ip address
+ shutdown
+ speed auto
+!
+interface Serial0
+ no ip address
+ shutdown
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ login local
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+!
+end
