@@ -1,0 +1,10 @@
+---
+hostname: Core-Switch-01
+dns_servers:
+  - 8.8.8.8
+  - 1.1.1.1
+interfaces:
+ - name: GigabitEthernet0/1
+   description: Uplink_To_Firewall
+   ip: 192.168.10.1
+   mask: 255.255.255.0  
